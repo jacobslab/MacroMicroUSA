@@ -13,8 +13,13 @@ public class MacroMover : MonoBehaviour {
 	private GameObject startObj;
 	private GameObject endObj;
 
+	public float minSpawnTime=2f;
+	private float maxSpawnTime=0f;
+	public float maxDriveTime = 10f;
+
 	// Use this for initialization
 	void Start () {
+		maxSpawnTime = maxDriveTime - 2f;
 		SwitchToTopDown (true);
 	}
 	
@@ -92,8 +97,12 @@ public class MacroMover : MonoBehaviour {
 		//		playerObj.transform.LookAt (targetObj.transform);-
 		float timer = 0f;
 		float factor = 0f;
+		float spawnTime = 0f;
+		if (shouldSpawn) {
+			spawnTime = Random.Range (minSpawnTime, maxSpawnTime);
+		}
 
-		while (timer < 10f) {
+		while (timer < maxDriveTime) {
 			timer += Time.deltaTime;
 			factor = timer / 10f;
 			playerObj.transform.position = Vector3.Lerp (playerStartPos, targetObj.transform.position, factor);

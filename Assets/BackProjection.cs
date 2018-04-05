@@ -12,11 +12,11 @@ public class BackProjection : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//Vector2 mousePos = new Vector2 (Input.mousePosition.x / Screen.width, 1f-(Input.mousePosition.y / Screen.height));
-		//Debug.Log (mousePos.ToString ());
-		Vector3 projVec= Camera.main.ViewportToWorldPoint(new Vector3(0.4225324f,0.7808381f,zPos));
-		Debug.Log (projVec.ToString ());
-		cube.transform.position = projVec;
+		Vector2 mousePos = new Vector2 (Input.mousePosition.x / Screen.width, 1f-(Input.mousePosition.y / Screen.height));
+		Debug.Log (mousePos.ToString ());
+//		Vector3 projVec= Camera.main.ScreenPointToWorld(new Vector3(0.4225324f,0.7808381f,zPos));
+//		Debug.Log (projVec.ToString ());
+//		cube.transform.position = projVec;
 	}
 //	void OnDrawGizmosSelected()
 //	{
